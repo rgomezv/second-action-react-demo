@@ -1,0 +1,22 @@
+name: Test Project
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      # Estos workflows se ejecutan en una VM, NO en el repositorio como tal.
+      # Así que hay que descargar el código en la VM.
+      - name: Get code on the server
+        uses: actions/checkout@v4.2.2
+      # Instalar Node js en la VM de ubuntu
+      - name: Install NodeJS
+        uses: actions/setup-node@v4.3.0
+        with:
+          node-version: "latest"
+        # Instalar dependencias
+      - name: Install dependencies
+        run:
+          npm install
+          # Ejecutar pruebas
+      - name: Run tests
+        run: npm test
