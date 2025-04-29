@@ -21,6 +21,10 @@ jobs:
       - name: Run tests
         run: npm test
   deploy:
+    # needs indica que este workflow depende del anterior antes de comenzar a ejecutarse
+    # Si es necesario, se pueden declarar como un array de dependencias
+    # Ejemplo: needs: [test, build]
+    needs: test
     runs-on: ubuntu-latest
     steps:
       # Me traigo el codigo del repositorio
