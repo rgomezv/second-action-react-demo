@@ -1,5 +1,6 @@
 name: Deploy Project
-on: push
+# workflow_dispatch es para poder ejecutar el workflow manualmente
+on: [push, workflow_dispatch]
 jobs:
   test:
     runs-on: ubuntu-latest
