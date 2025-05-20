@@ -3,6 +3,7 @@ on:
   pull_request:
     types:
       - opened
+  # can be used to trigger the workflow manually
   workflow_dispatch:
 jobs:
   deploy:
